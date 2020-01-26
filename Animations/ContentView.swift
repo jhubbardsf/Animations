@@ -13,12 +13,15 @@ struct ContentView: View {
     
     var body: some View {
         Button("Tap Me") {
-            // do nothing
+            self.animationAmount += 1
         }
         .padding(50)
         .background(Color.red)
         .foregroundColor(.white)
         .clipShape(Circle())
+        .scaleEffect(animationAmount)
+        .animation(.default)
+        .blur(radius: (animationAmount - 1) * 3)
         
     }
 }
